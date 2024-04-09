@@ -9,6 +9,6 @@ Este es el repositorio del Grupo 6, cuyos integrantes son:
 
 ## Wiki
 
-Puede acceder a la Wiki mediante el siguiente [enlace](https://github.com/R1cky09/GRP-6-2024-PROYINF.wiki.git)
+Puede acceder a la Wiki mediante el siguiente [enlace](https://github.com/R1cky09/GRP-6-2024-PROYINF/wiki)
 
 ## Videos
