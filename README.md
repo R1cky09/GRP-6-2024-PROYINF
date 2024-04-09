@@ -1,7 +1,7 @@
 # GRP-6-2024-PROYINF
 Este es el repositorio del Grupo 6, cuyos integrantes son:
 
-* Daniel Ligeti - 
+* Daniel Ligeti - 202173513-5
 * Ricardo Reyes - 202173518-6 
 * Bastian Ulloa - 
 * Benjamin Vallejos - 202030540-4
