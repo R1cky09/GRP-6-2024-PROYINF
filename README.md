@@ -5,7 +5,7 @@ Este es el repositorio del Grupo 6, cuyos integrantes son:
 * Ricardo Reyes - 202173518-6 
 * Bastian Ulloa - 
 * Benjamin Vallejos - 202030540-4
-* **Tutor:** Nombre Tutor
+* **Tutor:** Ignacio Muñoz
 
 ## Wiki
 
