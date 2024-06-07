@@ -28,3 +28,9 @@ Ejecutar el servidor con `node app.js` y acceder a `http://localhost:3000`.
 ## Uso
 
 Enviar archivos DICOM a `http://localhost:3000/upload` usando un cliente HTTP como Postman, configurando la solicitud POST con el archivo en 'form-data'.
+
+## Prototipo vista Final del proyecto
+
+Se adjunta el video que presenta el prototipo como un acercamiento a lo que es el proyecto final y el producto que queremos presentar como grupo.
+
+Link video: https://drive.google.com/file/d/1HZeFBGy92MiBISP7ZsWqTDMxjhKfn6pS/view?usp=sharing
