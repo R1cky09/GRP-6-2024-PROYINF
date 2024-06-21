@@ -5,7 +5,9 @@ import * as dicomParser from 'dicom-parser';
 
 const DicomViewer = ({ file }) => {
     const dicomImageRef = useRef(null);
-    const [invert, setInvert] = useState(false);  // Estado para controlar la inversión de la imagen
+    const [colorMode, setColorMode] = useState('normal');  // Estado para el modo de color
+    const [contrast, setContrast] = useState(0); // Valor inicial del contraste
+    const [brightness, setBrightness] = useState(0); // Valor inicial del brillo
 
     useEffect(() => {
         cornerstoneWADOImageLoader.external.dicomParser = dicomParser;
@@ -18,7 +20,11 @@ const DicomViewer = ({ file }) => {
             const imageId = cornerstoneWADOImageLoader.wadouri.fileManager.add(file);
             cornerstone.loadImage(imageId).then((image) => {
                 const viewport = cornerstone.getDefaultViewportForImage(element, image);
-                viewport.invert = invert;  // Configura la inversión basada en el estado
+                // Configura el viewport para el contraste y el brillo
+                viewport.voi.windowWidth = Math.max(1, image.width / 2 + contrast * 2); // Ajuste de contraste
+                viewport.voi.windowCenter = image.width / 2 + brightness; // Ajuste de brillo
+                viewport.invert = (colorMode === 'invertido'); // Ajuste de inversión
+
                 cornerstone.displayImage(element, image, viewport);
             });
 
@@ -26,12 +32,31 @@ const DicomViewer = ({ file }) => {
                 cornerstone.disable(element);
             };
         }
-    }, [file, invert]);  // Añade 'invert' a la lista de dependencias para reaccionar a los cambios
+    }, [file, contrast, brightness, colorMode]); // Añade las dependencias aquí
 
     return (
         <div>
-            <div ref={dicomImageRef} style={{ width: '512px', height: '512px' }} />
-            <button onClick={() => setInvert(!invert)}>Invertir Colores</button>  // Botón para invertir colores
+            <div className="dicomImageContainer" ref={dicomImageRef} />
+            <label>Contraste:</label>
+            <input
+                type="range"
+                min="-100"
+                max="100"
+                value={contrast}
+                onChange={(e) => setContrast(parseInt(e.target.value))}
+            />
+            <label>Brillo:</label>
+            <input
+                type="range"
+                min="-100"
+                max="100"
+                value={brightness}
+                onChange={(e) => setBrightness(parseInt(e.target.value))}
+            />
+            <select onChange={(e) => setColorMode(e.target.value)}>
+                <option value="normal">Normal</option>
+                <option value="invertido">Invertido</option>
+            </select>
         </div>
     );
 };

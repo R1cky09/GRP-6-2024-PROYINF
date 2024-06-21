@@ -36,3 +36,74 @@
     transform: rotate(360deg);
   }
 }
+
+/* Estilos generales para el body y el contenedor principal */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Estilos para el visor de imágenes DICOM */
+.dicomImageContainer {
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 512px;
+  height: 512px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+}
+
+/* Mejoras para el selector y sliders */
+select, input[type="range"] {
+  width: 80%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 5px;
+  background: #ddd;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity .2s;
+}
+
+input[type="range"]:hover {
+  opacity: 1;
+}
+
+/* Estilos para etiquetas (labels) */
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+/* Botones y enlaces */
+button, .App-link {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px 0;
+}
+
+button:hover, .App-link:hover {
+  background-color: #0056b3;
+}
