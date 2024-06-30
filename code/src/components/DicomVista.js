@@ -32,7 +32,7 @@ const DicomViewer = ({ file }) => {
                 cornerstone.disable(element);
             };
         }
-    }, [file, contrast, brightness, colorMode]); // Añade las dependencias aquí
+    }, [file, contrast, brightness, colorMode]); 
 
     return (
         <div>
@@ -45,6 +45,7 @@ const DicomViewer = ({ file }) => {
                 value={contrast}
                 onChange={(e) => setContrast(parseInt(e.target.value))}
             />
+
             <label>Brillo:</label>
             <input
                 type="range"
