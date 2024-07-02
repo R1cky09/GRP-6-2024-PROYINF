@@ -34,3 +34,9 @@ Enviar archivos DICOM a `http://localhost:3000/upload` usando un cliente HTTP co
 Se adjunta el video que presenta el prototipo como un acercamiento a lo que es el proyecto final y el producto que queremos presentar como grupo.
 
 Link video: https://drive.google.com/file/d/1HZeFBGy92MiBISP7ZsWqTDMxjhKfn6pS/view?usp=sharing
+
+## Resultado final implementación
+
+Se adjunta el video que muestra el resultado final del sistema implementado y lo que logró implementar.
+
+Link video: https://www.youtube.com/watch?v=K3o4Eor3Cgc
