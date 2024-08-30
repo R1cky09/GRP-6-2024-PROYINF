@@ -40,3 +40,13 @@ Link video: https://drive.google.com/file/d/1HZeFBGy92MiBISP7ZsWqTDMxjhKfn6pS/vi
 Se adjunta el video que muestra el resultado final del sistema implementado y lo que logró implementar.
 
 Link video: https://www.youtube.com/watch?v=K3o4Eor3Cgc
+
+## Continuación del semestre actual.
+
+Con el objetivo de continuar mejorando y expandiendo las funcionalidades de nuestro proyecto de procesamiento de imágenes DICOM, hemos planificado varios desarrollos clave para los próximos meses. Uno de los principales enfoques será la incorporación de un sistema de autenticación de usuarios, permitiendo así la creación de cuentas personales y el acceso seguro a la plataforma. Esta funcionalidad de login no solo aumentará la seguridad de la aplicación, sino que también mejorará la experiencia del usuario al permitir personalizar ajustes y preferencias individuales.
+
+Además, estamos explorando la posibilidad de integrar herramientas avanzadas de análisis de imágenes que permitan a los usuarios realizar mediciones y anotaciones directamente sobre las imágenes visualizadas. Esto será particularmente útil para profesionales de la salud que requieren herramientas precisas para la revisión y el diagnóstico basados en imágenes DICOM.
+
+También, considerando el feedback recibido, implementaremos mejoras en la interfaz de usuario para hacerla aún más intuitiva y amigable, asegurando que todos los usuarios, independientemente de su nivel técnico, puedan manejar la aplicación eficientemente.
+
+En términos de accesibilidad y rendimiento, trabajaremos en la optimización de la carga y procesamiento de imágenes para asegurar tiempos de respuesta rápidos incluso bajo condiciones de alto tráfico, garantizando una experiencia fluida y sin interrupciones.
