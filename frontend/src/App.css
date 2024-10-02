@@ -1,0 +1,130 @@
+/* Reset básico y estilos generales */
+body, h1, h2, h3, p, figure, blockquote, dl, dd {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #333333;
+  color: #FFFFFF;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* Estilos para el contenedor principal */
+.App {
+  text-align: center;
+  padding: 40px;
+  background-color: #424242;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  border-radius: 10px;
+  margin: 30px;
+}
+
+/* Mejoras para el encabezado */
+h1 {
+  color: #fbc531;
+  margin-bottom: 30px;
+}
+
+/* Estilos para botones y enlaces */
+button, .App-link {
+  background-color: #1db954;
+  color: #FFFFFF;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 18px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover, .App-link:hover {
+  background-color: #128c3c;
+  transform: scale(1.05);
+}
+
+/* Personalización de los input tipo 'file' y 'range' */
+input[type="file"], input[type="range"] {
+  width: 80%;
+  padding: 12px;
+  margin-top: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #555;
+  color: #fff;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #ddd;
+  height: 8px;
+}
+
+input[type="range"]:hover {
+  background: #ccc;
+}
+
+/* Ajustes para contenedores de imágenes DICOM */
+.dicomImageContainer {
+  margin: 20px auto;
+  border: 2px solid #fbc531;
+  width: 512px;
+  height: 512px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+}
+
+/* Estilos para controles deslizantes de contraste y brillo */
+input[type="range"] {
+  width: 90%;  /* Aumenta el ancho para un mejor control */
+  height: 10px;  /* Hace la barra deslizante un poco más gruesa */
+  background: #ddd;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity .2s;
+  margin: 20px auto;  /* Aumenta el margen para más espacio alrededor */
+}
+
+input[type="range"]:hover {
+  opacity: 1;
+}
+
+/* Mejoras en etiquetas para aumentar espacio y claridad */
+label {
+  display: block;
+  color: #FFFFFF;  /* Asegúrate de que las etiquetas sean legibles contra el fondo oscuro */
+  font-size: 16px;  /* Aumenta el tamaño de la fuente para una mejor visibilidad */
+  margin: 20px 0 10px;  /* Aumenta el margen para más separación */
+}
+
+/* Ajustes para mayor espacio alrededor de los selectores */
+select {
+  width: 80%;
+  padding: 12px;  /* Aumenta el padding para un manejo más cómodo */
+  margin-top: 10px;  /* Aumenta el margen superior para separar de otros elementos */
+  background-color: #555;  /* Fondo oscuro para mejor contraste con el texto */
+  color: #fff;  /* Texto claro para contraste */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

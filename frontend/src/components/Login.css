@@ -1,0 +1,23 @@
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto;
+  }
+  
+  label {
+    margin-bottom: 10px;
+  }
+  
+  input {
+    margin-top: 5px;
+  }
+  
+  button {
+    margin-top: 10px;
+  }
+  
+  .error {
+    color: red;  /* Color rojo para el mensaje de error */
+    margin-top: 10px;
+}
