@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
 
+app.use(express.json());
+
 db();
 
 const port = 3001;
@@ -20,8 +22,6 @@ const http = require('http');
 http.globalAgent.maxHeadersCount = null;  // Esto elimina el límite de la cantidad de encabezados
 
 
-// Middleware para parsear JSON
-app.use(express.json());
 
 // Servir archivos estáticos desde la carpeta build del frontend
 app.use(express.static(path.join(__dirname, '../frontend/build')));

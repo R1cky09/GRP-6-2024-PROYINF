@@ -7,9 +7,9 @@ exports.registerUser = async (req, res) => {
     try {
         const newUser = new User({ username, email, password });
         await newUser.save(); // Guarda el usuario en la base de datos
-        res.status(201).send('Usuario registrado con éxito');
+        res.status(201).json({ message: "Usuario registrado con éxito" });
     } catch (error) {
-        res.status(400).send('Error registrando al usuario: ' + error.message);
+        res.status(400).json({ message: 'Error registrando al usuario', error: error.message });
     }
 };
 
@@ -20,11 +20,11 @@ exports.loginUser = async (req, res) => {
     try {
         const user = await User.findOne({ username });
         if (user && user.password === password) {  
-            res.status(200).send({ message: "Inicio de sesión exitoso" });
+            res.status(200).json({ message: "Inicio de sesión exitoso" });
         } else {
-            res.status(401).send({ message: "Usuario o contraseña incorrectos" });
+            res.status(401).json({ message: "Usuario o contraseña incorrectos"});
         }
     } catch (error) {
-        res.status(500).send({ message: "Error de servidor", error: error.message });
+        res.status(500).json({ message: "Error de servidor", error: error.message });
     }
 };

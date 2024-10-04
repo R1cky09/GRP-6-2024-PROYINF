@@ -20,7 +20,7 @@ function Login({ onLogin }) {
             const result = await response.json();
             if (response.ok) {
                 onLogin(result);
-                navigate('/viewer');
+                navigate('/home');
             } else {
                 throw new Error(result.message || 'Credenciales incorrectas');
             }
