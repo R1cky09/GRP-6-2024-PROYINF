@@ -23,7 +23,10 @@ Puede acceder a la Wiki mediante el siguiente [enlace](https://github.com/R1cky0
 
 ## Ejecución
 
-Ejecutar el servidor con `node app.js` y acceder a `http://localhost:3000`.
+Ejecutar el servidor con `node app.js` 
+-Base de datos MongoDB llamada DICOM
+-npm start en carpeta frontend y backend
+-Acceder a `http://localhost:3000`.
 
 ## Uso
 
