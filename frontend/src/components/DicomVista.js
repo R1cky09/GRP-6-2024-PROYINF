@@ -73,6 +73,11 @@ const DicomViewer = () => {
         setPan({ x: 0, y: 0 }); // Restablece el paneo al cargar un nuevo archivo
     };
 
+    const handleDoubleClick = () => {
+        setZoom(2); 
+    };
+
+
     return (
         <div className="dicomViewerContainer">
             <button onClick={() => navigate('/home')}>Volver a Inicio</button>
@@ -83,7 +88,8 @@ const DicomViewer = () => {
                  onMouseDown={handleMouseDown}
                  onMouseMove={handleMouseMove}
                  onMouseUp={handleMouseUp}
-                 onMouseOut={handleMouseOut}>
+                 onMouseOut={handleMouseOut}
+                 onDoubleClick={handleDoubleClick}> 
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <label>Zoom:</label>
