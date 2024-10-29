@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import DicomSearch from './components/DicomSearch';  
 import HomePage from './components/HomePage';
+import DicomSearchFilters from './components/DicomSearchFilters';
 
 import './App.css';
 
@@ -34,6 +35,9 @@ const App = () => {
                     } />
                     <Route path="/dicom-search" element={
                         isLoggedIn ? <DicomSearch /> : <Navigate to="/login" replace />
+                    } />
+                    <Route path="/dicom-search-filters" element={
+                        isLoggedIn ? <DicomSearchFilters /> : <Navigate to="/login" replace />
                     } />
                     <Route path="/" element={<Navigate to="/login" />} />
                 </Routes>

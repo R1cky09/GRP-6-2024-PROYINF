@@ -30,3 +30,20 @@ exports.saveDicomInfo = async (req, res) => {
         res.status(500).json({ error: 'Error al guardar la información DICOM' });
     }
 };
+
+exports.searchDicomImages = async (req, res) => {
+    try {
+        const filters = req.body;
+        const query = {};
+
+        if (filters.patientID) query.patientID = filters.patientID;
+        if (filters.studyDate) query.studyDate = filters.studyDate;
+        if (filters.modality) query.modality = filters.modality;
+
+        const results = await DicomModel.find(query);
+        res.status(200).json(results);
+    } catch (error) {
+        console.error('Error en la búsqueda de imágenes DICOM:', error.message);
+        res.status(500).json({ error: 'Error en la búsqueda de imágenes DICOM' });
+    }
+};
