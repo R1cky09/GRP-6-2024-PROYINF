@@ -8,7 +8,7 @@ const HomePage = () => {
         <div>
             <h1>Página de Inicio</h1>
             <button onClick={() => navigate('/viewer')}>Ir a Visualizador DICOM</button>
-            <button onClick={() => navigate('/dicom-search')}>Buscar Información DICOM</button>
+            <button onClick={() => navigate('/dicom-search')}>Guardar Información DICOM</button>
         </div>
     );
 };

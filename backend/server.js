@@ -37,6 +37,12 @@ app.get('*', (req, res) => {
 
 
 
+// Usa las rutas para manejar DICOM
+const dicomRoutes = require('./routes/dicomRoutes');
+app.use('/api/dicom', dicomRoutes);
+
+
+
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 })
