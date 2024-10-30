@@ -25,7 +25,7 @@ Puede acceder a la Wiki mediante el siguiente [enlace](https://github.com/R1cky0
 
 Ejecutar el servidor con `node app.js` 
 
--Base de datos MongoDB llamada DICOM
+-Base de datos MongoDB llamada DICOM en el puerto 3001
 
 -npm start en carpeta frontend y backend
 
