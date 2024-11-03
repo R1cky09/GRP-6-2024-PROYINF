@@ -58,13 +58,9 @@ const DicomViewer = () => {
         }
     };
 
-    const handleMouseUp = () => {
-        setIsDragging(false);
-    };
+    const handleMouseUp = () => setIsDragging(false);
 
-    const handleMouseOut = () => {
-        setIsDragging(false);
-    };
+    const handleMouseOut = () => setIsDragging(false);
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
@@ -73,38 +69,44 @@ const DicomViewer = () => {
         setPan({ x: 0, y: 0 }); // Restablece el paneo al cargar un nuevo archivo
     };
 
-    const handleDoubleClick = () => {
-        setZoom(2); 
-    };
-
-
     return (
-        <div className="dicomViewerContainer">
-            <button onClick={() => navigate('/home')}>Volver a Inicio</button>
-            <h2>Visualizador DICOM</h2>
-            <input type="file" onChange={handleFileChange} accept=".dcm" />
-            <div className="dicomImageContainer" ref={dicomImageRef}
-                 style={{ width: '512px', height: '512px', margin: 'auto' }}
-                 onMouseDown={handleMouseDown}
-                 onMouseMove={handleMouseMove}
-                 onMouseUp={handleMouseUp}
-                 onMouseOut={handleMouseOut}
-                 onDoubleClick={handleDoubleClick}> 
+        <div className="dicomViewerContainer" style={{ display: 'flex', alignItems: 'flex-start' }}>
+            <div className="controls" style={{ marginRight: '20px' }}>
+                <button onClick={() => navigate('/home')}>Volver a Inicio</button>
+                <h2>Visualizador DICOM</h2>
+                <input type="file" onChange={handleFileChange} accept=".dcm" />
+                <div>
+                    <label>Zoom:</label>
+                    <input type="range" min="0.5" max="6" step="0.1" value={zoom}
+                        onChange={(e) => setZoom(parseFloat(e.target.value))} />
+                </div>
+                <div>
+                    <label>Contraste:</label>
+                    <input type="range" min="-100" max="100" value={contrast}
+                        onChange={(e) => setContrast(parseInt(e.target.value))} />
+                </div>
+                <div>
+                    <label>Brillo:</label>
+                    <input type="range" min="-100" max="100" value={brightness}
+                        onChange={(e) => setBrightness(parseInt(e.target.value))} />
+                </div>
+                <div>
+                    <label>Modo de color:</label>
+                    <select onChange={(e) => setColorMode(e.target.value)}>
+                        <option value="normal">Normal</option>
+                        <option value="invertido">Invertido</option>
+                    </select>
+                </div>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <label>Zoom:</label>
-                <input type="range" min="0.5" max="6" step="0.1" value={zoom}
-                       onChange={(e) => setZoom(parseFloat(e.target.value))} />
-                <label>Contraste:</label>
-                <input type="range" min="-100" max="100" value={contrast}
-                       onChange={(e) => setContrast(parseInt(e.target.value))} />
-                <label>Brillo:</label>
-                <input type="range" min="-100" max="100" value={brightness}
-                       onChange={(e) => setBrightness(parseInt(e.target.value))} />
-                <select onChange={(e) => setColorMode(e.target.value)}>
-                    <option value="normal">Normal</option>
-                    <option value="invertido">Invertido</option>
-                </select>
+            <div
+                className="dicomImageContainer"
+                ref={dicomImageRef}
+                style={{ width: '512px', height: '512px', border: '1px solid #ccc', cursor: 'grab' }}
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+                onMouseOut={handleMouseOut}
+            >
             </div>
         </div>
     );

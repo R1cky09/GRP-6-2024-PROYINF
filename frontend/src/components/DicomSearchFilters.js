@@ -43,7 +43,7 @@ const DicomSearchFilters = () => {
                 </label>
                 <label>
                     Fecha del Estudio:
-                    <input type="date" name="studyDate" value={filters.studyDate} onChange={handleInputChange} />
+                    <input type="text" name="studyDate" value={filters.studyDate} onChange={handleInputChange} />
                 </label>
                 <label>
                     Modalidad:
