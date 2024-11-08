@@ -40,7 +40,13 @@ exports.searchDicomImages = async (req, res) => {
         if (filters.studyDate) query.studyDate = filters.studyDate;
         if (filters.modality) query.modality = filters.modality;
 
-        const results = await DicomModel.find(query);
+        const results = await DicomModel.find(query, {
+            patientID: 1,
+            studyDate: 1,
+            modality: 1,
+            studyDescription: 1,
+            fileName: 1, 
+        });
         res.status(200).json(results);
     } catch (error) {
         console.error('Error en la búsqueda de imágenes DICOM:', error.message);

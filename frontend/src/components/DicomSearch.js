@@ -26,9 +26,11 @@ const DicomSearch = () => {
             const studyDescription = dataSet.string('x00081030');
             const institutionName = dataSet.string('x00080080');
             const SOPInstanceUID = dataSet.string('x00080018');
+            const fileName = file.name;
 
 
             const fileData = {
+                fileName,
                 patientName,
                 patientID,
                 studyDate,

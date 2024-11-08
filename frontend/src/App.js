@@ -19,11 +19,18 @@ const App = () => {
     };
 
 
+    const logout = () => {
+        setIsLoggedIn(false);
+        alert('Sesión cerrada');
+    };  
 
     return (
         <Router>
             <div className="App">
-                <h1>Visualizador de Imágenes DICOM</h1>
+                <header className="app-header">
+                    {isLoggedIn && <button className="logout-button" onClick={logout}>Cerrar Sesión</button>}  
+                </header> 
+                <h1>Visualizador de Imágenes DICOM</h1>  
                 <Routes>
                     <Route path="/login" element={<Login onLogin={login} />} />
                     <Route path="/register" element={<Register />} />

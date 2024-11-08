@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const dicomSchema = new mongoose.Schema({
+    fileName: { type: String, required: true },
     patientName: { type: String, required: true },
     patientID: { type: String, required: true },
     studyDate: { type: String, required: true },

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './DicomSearchFilters.css';  // Archivo CSS que crearemos
+import './DicomSearchFilters.css';  
 
 
 const DicomSearchFilters = () => {
@@ -62,6 +62,7 @@ const DicomSearchFilters = () => {
                                 <p><strong>Fecha del Estudio:</strong> {image.studyDate}</p>
                                 <p><strong>Modalidad:</strong> {image.modality}</p>
                                 <p><strong>Descripción del Estudio:</strong> {image.studyDescription}</p>
+                                <p><strong>Nombre del Archivo:</strong> {image.fileName}</p> {/* Mostrar el nombre del archivo */}
                             </li>
                         ))}
                     </ul>
