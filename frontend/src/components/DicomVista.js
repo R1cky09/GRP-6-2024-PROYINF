@@ -76,23 +76,23 @@ const DicomViewer = () => {
                 <h2>Visualizador DICOM</h2>
                 <input type="file" onChange={handleFileChange} accept=".dcm" />
                 <div>
-                    <label>Zoom:</label>
-                    <input type="range" min="0.5" max="6" step="0.1" value={zoom}
+                    <label htmlFor="zoomRange">Zoom:</label>
+                    <input id="zoomRange" type="range" min="0.5" max="6" step="0.1" value={zoom}
                         onChange={(e) => setZoom(parseFloat(e.target.value))} />
                 </div>
                 <div>
-                    <label>Contraste:</label>
-                    <input type="range" min="-100" max="100" value={contrast}
+                    <label htmlFor="contrastRange">Contraste:</label>
+                    <input id="contrastRange" type="range" min="-100" max="100" value={contrast}
                         onChange={(e) => setContrast(parseInt(e.target.value))} />
                 </div>
                 <div>
-                    <label>Brillo:</label>
-                    <input type="range" min="-100" max="100" value={brightness}
+                    <label htmlFor="brightnessRange">Brillo:</label>
+                    <input id="brightnessRange" type="range" min="-100" max="100" value={brightness}
                         onChange={(e) => setBrightness(parseInt(e.target.value))} />
                 </div>
                 <div>
-                    <label>Modo de color:</label>
-                    <select onChange={(e) => setColorMode(e.target.value)}>
+                    <label htmlFor="colorModeSelect">Modo de color:</label>
+                    <select id="colorModeSelect" onChange={(e) => setColorMode(e.target.value)}>
                         <option value="normal">Normal</option>
                         <option value="invertido">Invertido</option>
                     </select>
@@ -101,11 +101,22 @@ const DicomViewer = () => {
             <div
                 className="dicomImageContainer"
                 ref={dicomImageRef}
+                role="button"
+                tabIndex={0}
+                aria-label="Visualizador de imagen DICOM"
                 style={{ width: '512px', height: '512px', border: '1px solid #ccc', cursor: 'grab' }}
                 onMouseDown={handleMouseDown}
                 onMouseMove={handleMouseMove}
                 onMouseUp={handleMouseUp}
                 onMouseOut={handleMouseOut}
+                onTouchStart={handleMouseDown}
+                onTouchMove={handleMouseMove}
+                onTouchEnd={handleMouseUp}
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        handleMouseDown(e);
+                    }
+                }}
             >
             </div>
         </div>

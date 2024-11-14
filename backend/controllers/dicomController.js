@@ -1,29 +1,59 @@
 const DicomModel = require('../models/DicomModel');
+const { validationResult } = require('express-validator');
 
 exports.saveDicomInfo = async (req, res) => {
     try {
-        console.log('Datos recibidos:', req.body);
+        // Validar los datos recibidos
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            console.log('Errores de validación:', errors.array());
+            return res.status(400).json({ errors: errors.array() });
+        }
 
-        // Verificar si ya existe una imagen con los mismos identificadores únicos
-        const existingDicom = await DicomModel.findOne({
-            SOPInstanceUID: req.body.SOPInstanceUID
-        });
+        // Extraer datos del cuerpo de la solicitud
+        const {
+            fileName,
+            patientName,
+            patientID,
+            studyDate,
+            modality,
+            SOPInstanceUID,
+            studyDescription,
+            institutionName,
+        } = req.body;
 
+        console.log('Datos validados:', req.body);
+
+        // Verificar si ya existe una imagen con el mismo SOPInstanceUID
+        const existingDicom = await DicomModel.findOne({ SOPInstanceUID });
         if (existingDicom) {
+            console.log('Imagen DICOM ya existe:', existingDicom);
             return res.status(200).json({
                 message: 'El archivo DICOM ya existe en la base de datos',
                 exists: true,
-                data: existingDicom
+                data: existingDicom,
             });
         }
 
-        // Guardar nuevo registro si no existe duplicado
-        const dicomData = new DicomModel(req.body);
+        // Crear un nuevo registro con los datos validados
+        const dicomData = new DicomModel({
+            fileName,
+            patientName,
+            patientID,
+            studyDate,
+            modality,
+            SOPInstanceUID,
+            studyDescription,
+            institutionName,
+        });
+
+        // Guardar el nuevo registro en la base de datos
         await dicomData.save();
+        console.log('Información DICOM guardada exitosamente:', dicomData);
         res.status(201).json({
             message: 'Información DICOM guardada exitosamente',
             exists: false,
-            data: dicomData
+            data: dicomData,
         });
     } catch (error) {
         console.error('Error al guardar la información DICOM:', error.message);
@@ -33,6 +63,14 @@ exports.saveDicomInfo = async (req, res) => {
 
 exports.searchDicomImages = async (req, res) => {
     try {
+        // Validar los datos recibidos
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            console.log('Errores de validación:', errors.array());
+            return res.status(400).json({ errors: errors.array() });
+        }
+
+        // Construir el filtro de búsqueda
         const filters = req.body;
         const query = {};
 
@@ -40,13 +78,15 @@ exports.searchDicomImages = async (req, res) => {
         if (filters.studyDate) query.studyDate = filters.studyDate;
         if (filters.modality) query.modality = filters.modality;
 
+        // Realizar la búsqueda en la base de datos
         const results = await DicomModel.find(query, {
             patientID: 1,
             studyDate: 1,
             modality: 1,
             studyDescription: 1,
-            fileName: 1, 
+            fileName: 1,
         });
+        console.log('Resultados de búsqueda:', results);
         res.status(200).json(results);
     } catch (error) {
         console.error('Error en la búsqueda de imágenes DICOM:', error.message);
